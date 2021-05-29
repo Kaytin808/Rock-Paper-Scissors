@@ -3,34 +3,59 @@ function computerPlay() {
   let thing = word[Math.floor(Math.random() * word.length)];
   return thing;
 }
-var userChoice = prompt("Rock paper or scissors?");
 var computerChoice = computerPlay();
-function playRound(userChoice, computerChoice) {
+var userChoice = "";
+choice1 = userChoice;
+choice2 = computerChoice;
+var myScore = 0;
+var computerScore = 0;
+function playRound(choice1, choice2) {
+  var userChoice = prompt("Rock paper or scissors?");
   if (userChoice.toLowerCase() === "Scissors".toLowerCase()) {
     if (computerChoice === "Paper") {
-      return "You win! Scissors beats Paper!";
+      ++myScore;
+      return (
+        "You win! Scissors beats Paper! Score " + myScore + ":" + computerScore
+      );
     } else if (computerChoice === "Rock") {
-      return "You lose! Rock beats Scissors!";
+      ++computerScore;
+      return (
+        "You lose! Rock beats Scissors! Score " + myScore + ":" + computerScore
+      );
     } else {
-      return "It's a tie!";
+      return (
+        "It's a tie! Score Player & Computer: " + myScore + ":" + computerScore
+      );
     }
   }
   if (userChoice.toLowerCase() === "Rock".toLowerCase()) {
     if (computerChoice === "Scissors") {
-      return "You win! Rock beats Scissors";
+      ++myScore;
+      return (
+        "You win! Rock beats Scissors! Score " + myScore + ":" + computerScore
+      );
     } else if (computerChoice === "Paper") {
-      return "You lose! Paper beats Rock!";
+      ++computerScore;
+      return (
+        "You lose! Paper beats Rock! Score " + myScore + ":" + computerScore
+      );
     } else {
-      return "It's a tie!";
+      return (
+        "It's a tie! Score Player & Computer: " + myScore + ":" + computerScore
+      );
     }
   }
   if (userChoice.toLowerCase() === "Paper".toLowerCase()) {
     if (computerChoice === "Rock") {
-      return "You win! Paper beats Rock!";
+      ++myScore;
+      return "You win! Paper beats Rock!" + myScore + ":" + computerScore;
     } else if (computerChoice === "Scissors") {
-      return "You lose! Scissors beats Paper!";
+      ++computerScore;
+      return "You lose! Scissors beats Paper!" + myScore + ":" + computerScore;
     } else {
-      return "It's a tie!";
+      return (
+        "It's a tie! Score Player & Computer: " + myScore + ":" + computerScore
+      );
     }
   }
 }
