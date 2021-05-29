@@ -3,29 +3,35 @@ function computerPlay() {
   let thing = word[Math.floor(Math.random() * word.length)];
   return thing;
 }
-let userChoice = prompt("Rock paper or scissors?");
-let computerChoice = computerPlay();
+var userChoice = prompt("Rock paper or scissors?");
+var computerChoice = computerPlay();
 function playRound(userChoice, computerChoice) {
-  if (userChoice === computerChoice) {
-    return "It's a tie!"; // This is the start of winning rounds for userChoice
-  } else if (userChoice === "Rock") {
-    if (computerChoice === "Scissors") {
-      return "You win! Rock beats Scissors!";
-    } else {
-      return "You lose! Paper Beats Rock!";
-    }
-  } else if (userChoice === "Scissors") {
+  if (userChoice.toLowerCase() === "Scissors".toLowerCase()) {
     if (computerChoice === "Paper") {
       return "You win! Scissors beats Paper!";
+    } else if (computerChoice === "Rock") {
+      return "You lose! Rock beats Scissors!";
     } else {
-      return "You lose! Rock Beats Scissors!";
+      return "It's a tie!";
     }
-  } else if (userChoice === "Paper") {
+  }
+  if (userChoice.toLowerCase() === "Rock".toLowerCase()) {
+    if (computerChoice === "Scissors") {
+      return "You win! Rock beats Scissors";
+    } else if (computerChoice === "Paper") {
+      return "You lose! Paper beats Rock!";
+    } else {
+      return "It's a tie!";
+    }
+  }
+  if (userChoice.toLowerCase() === "Paper".toLowerCase()) {
     if (computerChoice === "Rock") {
       return "You win! Paper beats Rock!";
+    } else if (computerChoice === "Scissors") {
+      return "You lose! Scissors beats Paper!";
+    } else {
+      return "It's a tie!";
     }
-  } else {
-    return "You lose! Scissors beats Paper!";
   }
 }
 console.log(playRound(userChoice, computerChoice));
