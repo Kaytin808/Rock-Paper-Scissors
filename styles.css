@@ -21,10 +21,14 @@ header > h1 {
 #user-label {
   font-style: italic;
   font-family: sans-serif;
+  background-color: cornflowerblue;
+  color: aliceblue;
 }
 #computer-label {
   font-style: italic;
   font-family: sans-serif;
+  background-color: cornflowerblue;
+  color: aliceblue;
 }
 .results {
   font-size: 40px;
@@ -56,4 +60,7 @@ header > h1 {
 }
 #computer-label {
   float: right;
+}
+img:hover {
+  cursor: pointer;
 }
