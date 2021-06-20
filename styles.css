@@ -48,12 +48,37 @@ header > h1 {
   width: 120px;
   height: 100px;
 }
+body {
+  background-color: aliceblue;
+}
+.github {
+  width: 75px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.github:hover {
+  cursor: pointer;
+}
 #choices {
   text-align: center;
-  margin: 20px auto;
+  margin: 50px auto;
+  border: 2px solid rgb(0, 0, 0);
+  width: 800px;
+  height: 200px;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 .choice {
   display: inline-block;
+  padding: 50px;
+  margin: 0 20px;
+}
+#action-message {
+  text-align: center;
+  font-style: bold;
+  font-family: sans-serif;
+  font-size: 20px;
 }
 #user-label {
   float: left;
@@ -61,6 +86,7 @@ header > h1 {
 #computer-label {
   float: right;
 }
-img:hover {
+.choice:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
