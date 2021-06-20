@@ -18,6 +18,14 @@ header > h1 {
   border-radius: 5px;
   padding: 15px 20px;
 }
+#user-label {
+  font-style: italic;
+  font-family: sans-serif;
+}
+#computer-label {
+  font-style: italic;
+  font-family: sans-serif;
+}
 .results {
   font-size: 40px;
 }
@@ -42,4 +50,10 @@ header > h1 {
 }
 .choice {
   display: inline-block;
+}
+#user-label {
+  float: left;
+}
+#computer-label {
+  float: right;
 }
