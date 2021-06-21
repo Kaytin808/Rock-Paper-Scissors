@@ -33,8 +33,7 @@ function win(userChoice, computerChoice) {
 function loss(userChoice, computerChoice) {
   computerScore++;
   computerScore_span.innerHTML = computerScore;
-  results_p.innerHTML =
-    computerChoice + " beats " + userChoice + ", you lost!💩💩💩";
+  results_p.innerHTML = `${computerChoice} beats ${userChoice}, you lost!💩💩💩`;
 }
 function main() {
   rock_div.addEventListener("click", function () {
@@ -58,16 +57,48 @@ function game(userChoice) {
     case "ScissorsPaper":
     case "PaperRock":
       win(userChoice, computerChoice);
+      checkForWinner();
       break;
     case "ScissorsRock":
     case "PaperScissors":
     case "RockPaper":
       loss(userChoice, computerChoice);
+      checkForWinner();
       break;
     case "RockRock":
     case "PaperPaper":
     case "ScissorsScissors":
       tie(userChoice, computerChoice);
       break;
+  }
+}
+// Restart fresh new game //
+function restartGame() {
+  // New score //
+  userScore = 0;
+  computerScore = 0;
+  // Show new score //
+  userScore_span.innerHTML = userScore;
+  computerScore_span.innerHTML = computerScore;
+  // show blank results //
+  results_p.innerHTML = "";
+}
+function winner() {
+  results_p.innerHTML =
+    'Winner winner chicken dinner!🏆🍗🏆 <button onclick="restartGame()">Play again?</button>';
+  rock_div.setAttribute("disabled", 1);
+  paper_div.setAttribute("disabled", 1);
+  sciss_div.setAttribute("disabled", 1);
+}
+function loser() {
+  results_p.innerHTML =
+    'You lost! HUMANITY IS DOOOOOOOMED!!🔥🔥🤖🤖🤖<button onclick="restartGame()">Play again?</button>';
+}
+// Check to see who wins over 5 points
+function checkForWinner() {
+  if (userScore >= 5) {
+    winner();
+  } else if (computerScore >= 5) {
+    loser();
   }
 }
