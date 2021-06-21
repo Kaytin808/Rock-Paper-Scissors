@@ -48,6 +48,10 @@ header > h1 {
   width: 120px;
   height: 100px;
 }
+input {
+  width: 120px;
+  height: 100px;
+}
 body {
   background-color: aliceblue;
 }

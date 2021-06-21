@@ -69,6 +69,7 @@ function game(userChoice) {
     case "PaperPaper":
     case "ScissorsScissors":
       tie(userChoice, computerChoice);
+      checkForWinner();
       break;
   }
 }
@@ -80,25 +81,43 @@ function restartGame() {
   // Show new score //
   userScore_span.innerHTML = userScore;
   computerScore_span.innerHTML = computerScore;
+  // reEnable  button images //
+  document.getElementById("r").disabled = false;
+  document.getElementById("s").disabled = false;
+  document.getElementById("p").disabled = false;
+
+  rock_div.style = "pointer-events: false";
+  paper_div.style = "pointer-events: false";
+  sciss_div.style = "pointer-events: false";
   // show blank results //
   results_p.innerHTML = "";
 }
+
 function winner() {
   results_p.innerHTML =
     'Winner winner chicken dinner!🏆🍗🏆 <button onclick="restartGame()">Play again?</button>';
-  rock_div.setAttribute("disabled", 1);
-  paper_div.setAttribute("disabled", 1);
-  sciss_div.setAttribute("disabled", 1);
+  document.getElementById("r").disabled = true;
+  document.getElementById("s").disabled = true;
+  document.getElementById("p").disabled = true;
+  rock_div.style = "pointer-events: none";
+  paper_div.style = "pointer-events: none";
+  sciss_div.style = "pointer-events: none";
 }
 function loser() {
   results_p.innerHTML =
     'You lost! HUMANITY IS DOOOOOOOMED!!🔥🔥🤖🤖🤖<button onclick="restartGame()">Play again?</button>';
+  document.getElementById("r").disabled = true;
+  document.getElementById("s").disabled = true;
+  document.getElementById("p").disabled = true;
+  rock_div.style = "pointer-events: none";
+  paper_div.style = "pointer-events: none";
+  sciss_div.style = "pointer-events: none";
 }
 // Check to see who wins over 5 points
 function checkForWinner() {
-  if (userScore >= 5) {
+  if (userScore === 5) {
     winner();
-  } else if (computerScore >= 5) {
+  } else if (computerScore === 5) {
     loser();
   }
 }
